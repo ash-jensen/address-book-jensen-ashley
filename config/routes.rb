@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :people
   # get 'addressbook/index'
   root 'addressbook#index'
