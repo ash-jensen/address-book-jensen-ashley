@@ -1,4 +1,4 @@
-<%= form_with(model: person) do |form| %>
+<%= form_with(model: person) do |f| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :salutation %>
-    <%= form.text_field :salutation %>
+  <div class="mb-3">
+    <%= f.label :salutation, class:"form-label" %>
+    <%= f.text_field :salutation, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="mb-3">
+    <%= f.label :first_name, class:"form-label" %>
+    <%= f.text_field :first_name, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :middle_name %>
-    <%= form.text_field :middle_name %>
+  <div class="mb-3">
+    <%= f.label :middle_name, class:"form-label" %>
+    <%= f.text_field :middle_name, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="mb-3">
+    <%= f.label :last_name, class:"form-label" %>
+    <%= f.text_field :last_name, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :ssn %>
-    <%= form.text_field :ssn %>
+  <div class="mb-3">
+    <%= f.label :ssn, "SSN", class:"form-label" %>
+    <%= f.text_field :ssn, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.text_field :birth_date %>
+  <div class="mb-3">
+    <%= f.label :birth_date, class:"form-label" %>
+    <%= f.text_field :birth_date, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
+  <div class="mb-3">
+    <%= f.label :comment, class:"form-label" %>
+    <%= f.text_area :comment, class:"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

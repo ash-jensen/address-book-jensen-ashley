@@ -1,5 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<div class="mt-4 p-5 bg-light text-black rounded">
+  <h1>
+    <%= @person.salutation %>
+    <%= @person.first_name %>
+    <%= @person.middle_name %>
+    <%= @person.last_name %>
+  </h1>
+  <p>
+    <%= @person.ssn %> <br/>
+    <%= @person.birth_date %> <br/>
+    <%= @person.comment %> <br/>
+  </p>
+
+  <%= link_to 'Edit', edit_person_path(@person), class:"btn btn-primary" %> 
+  <%= link_to 'Back', people_path, class: "btn btn-primary" %>
+</div>
+
+
+
+<!--
 <p>
   <strong>Salutation:</strong>
   <%= @person.salutation %>
@@ -35,5 +55,6 @@
   <%= @person.comment %>
 </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Edit', edit_person_path(@person), class: "btn btn-primary" %>
+<%= link_to 'Back', people_path, class: "btn btn-primary" %>
+-->
