@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, except: [:new]
+  get "sign_up", to: "users#new"
+
+
+
   resources :people
   # get 'addressbook/index'
   root 'addressbook#index'
