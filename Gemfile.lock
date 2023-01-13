@@ -86,8 +86,6 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     date (3.3.3)
-    email_validator (2.2.4)
-      activemodel
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -242,7 +240,6 @@ DEPENDENCIES
   bootstrap (~> 5.2.3)
   byebug
   capybara (>= 3.26)
-  email_validator
   importmap-rails (~> 1.1)
   jbuilder (~> 2.7)
   jquery-rails
