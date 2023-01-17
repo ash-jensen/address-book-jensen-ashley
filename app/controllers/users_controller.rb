@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User created."
       redirect_to root_path
     else
+      flash[:notice] = "You must enter a valid email and a password."
       render 'new'
     end
   end
