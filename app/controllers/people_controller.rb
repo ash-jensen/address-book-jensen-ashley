@@ -54,12 +54,20 @@ class PeopleController < ApplicationController
 
   # DELETE /people/1 or /people/1.json
   def destroy
-    @person.destroy
+    @person = Person.find(params[:id])
+    
+    begin
+      @person.destroy
 
-    respond_to do |format|
-      format.html { redirect_to people_url, notice: "Person was successfully destroyed." }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to people_url, notice: "Person was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    rescue 
+      flash[:notice] = "You must first delete the addresses associated with this person."
+      redirect_to people_path
     end
+
   end
 
   def correct_user
