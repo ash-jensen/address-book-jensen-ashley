@@ -1,9 +1,13 @@
 class PeopleController < ApplicationController
+  before_action :require_user
+  before_action :correct_user, only: [ :edit, :update, :destroy, :show ]
   before_action :set_person, only: %i[ show edit update destroy ]
-
+ 
   # GET /people or /people.json
   def index
-    @people = Person.all
+    @people = current_user.people.all
+    @person = current_user.people.build
+    @address = Address.new
   end
 
   # GET /people/1 or /people/1.json
@@ -12,7 +16,7 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @person = Person.new
+    @person = current_user.people.build
   end
 
   # GET /people/1/edit
@@ -21,11 +25,12 @@ class PeopleController < ApplicationController
 
   # POST /people or /people.json
   def create
-    @person = Person.new(person_params)
+    @person = current_user.people.build(person_params)
+    @people = current_user.people.all
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to person_url(@person), notice: "Person was successfully created." }
+        format.html { redirect_to people_url, notice: "Person was successfully created." }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +43,7 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update(person_params)
-        format.html { redirect_to person_url(@person), notice: "Person was successfully updated." }
+        format.html { redirect_to people_url, notice: "Person was successfully updated." }
         format.json { render :show, status: :ok, location: @person }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,6 +62,11 @@ class PeopleController < ApplicationController
     end
   end
 
+  def correct_user
+    @person = current_user.people.find_by(id: params[:id])
+    redirect_to people_path, notice: "You are not authorized to access this content" if @person.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
@@ -65,6 +75,7 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:salutation, :first_name, :middle_name, :last_name, :ssn, :birth_date, :comment)
+      params.require(:person).permit(:salutation, :first_name, :middle_name, :last_name, :ssn, :birth_date, :comment, :user_id)
     end
+
 end
