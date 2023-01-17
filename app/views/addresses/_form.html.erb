@@ -10,38 +10,38 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
+  <div class="mb-2">
+    <%= form.label :street, class:"form-label" %>
+    <%= form.text_field :street, class:"form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :town %>
-    <%= form.text_field :town %>
+  <div class="mb-2">
+    <%= form.label :town, class:"form-label" %>
+    <%= form.text_field :town, class:"form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :zip_code %>
-    <%= form.text_field :zip_code %>
+  <div class="mb-2">
+    <%= form.label :zip_code, class:"form-label" %>
+    <%= form.text_field :zip_code, class:"form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
+  <div class="mb-2">
+    <%= form.label :state, class:"form-label" %>
+    <%= form.text_field :state, class:"form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
+  <div class="mb-2">
+    <%= form.label :country, class:"form-label" %>
+    <%= form.text_field :country, class:"form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.text_field :user_id, id: :person_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  <div>
+    <%= form.text_field :user_id, id: :person_user_id, class:"form-control mb-", value: current_user.id, type: :hidden %>
   </div> 
 
   <%= hidden_field_tag :person_id, person_id %>
 
-  <div class="actions">
+  <div class="actions mt-3">
     <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
   

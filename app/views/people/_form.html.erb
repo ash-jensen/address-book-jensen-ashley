@@ -10,8 +10,10 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="mb-3">
+  
+  <h5 class="mb-3 mt-3">Edit Person Information:</h5>
+  
+  <div class="mb-2">
     <%= f.label :salutation, class:"form-label" %>
     <%= f.text_field :salutation, class:"form-control" %>
   </div>
@@ -47,7 +49,7 @@
   </div>
 
   <%# Hidden field to hold user_id %>
-    <div class="mb-3">
+    <div>
     <%= f.text_field :user_id, id: :person_user_id, class:"form-control", value: current_user.id, type: :hidden %>
  </div> 
  

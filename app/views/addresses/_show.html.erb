@@ -24,6 +24,6 @@
     <%= address.country %>
   </p>
 
-  <%= link_to 'Edit', edit_address_path(address.id), class: "btn btn-primary mb-4" %>
-  <%= link_to 'Delete', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary mb-4" %>
+  <%= link_to 'Edit', edit_address_path(address.id), class: "btn btn-primary" %>
+  <%= link_to 'Delete', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
 <% end %>
