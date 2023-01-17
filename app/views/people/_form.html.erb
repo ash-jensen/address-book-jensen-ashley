@@ -1,4 +1,4 @@
-<%= form_with(model: person) do |f| %>
+<%= form_with(model: person, local: false) do |f| %>
   <% if person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -46,6 +46,11 @@
     <%= f.text_area :comment, class:"form-control" %>
   </div>
 
+  <%# Hidden field to hold user_id %>
+    <div class="mb-3">
+    <%= f.text_field :user_id, id: :person_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+ </div> 
+ 
   <div class="mb-3">
     <%= f.submit "Save", class: "btn btn-primary" %>
   </div>

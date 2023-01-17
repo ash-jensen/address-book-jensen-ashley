@@ -1,32 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <h1>People</h1>
 
-<% @people.each do |person| %>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">
-        <%= person.salutation %> 
-        <%= person.first_name %> 
-        <%= person.middle_name %> 
-        <%= person.last_name %>
-      </h5>
-      <% if person.birth_date.present? %>
-        <h6 class="card-subtitle mb-2 text-muted">
-          DOB: <%= person.birth_date %>
-        </h6>
-      <% end %>
-      <% if person.ssn.present? %>
-        <h6 class="card-subtitle mb-2 text-muted">
-          SSN: <%= person.ssn %>
-        </h6>
-      <% end %>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <%= link_to 'More Info', person, class: "btn btn-primary" %>
-      <%= link_to 'Edit', edit_person_path(person), class: "btn btn-primary" %>
-      <%= link_to 'Delete', person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-    </div>
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Create New Person
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+     <%= render "new", person: @person %>
   </div>
-<% end %>
+</div>
 
-<%= link_to 'New Person', new_person_path, class: "btn btn-primary" %>
+<% @people.each do |person| %>
+  <%= render "person", person: person %>
+<% end %>

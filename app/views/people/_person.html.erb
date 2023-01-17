@@ -1,0 +1,58 @@
+<div class="card mb-4 bg-light rounded">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+          
+          <h5 class="card-title">
+            <%= person.salutation %> 
+            <%= person.first_name %> 
+            <%= person.middle_name %> 
+            <%= person.last_name %>
+          </h5>
+
+          <% if person.birth_date.present? %>
+            <h6 class="card-subtitle mb-2 text-muted">
+              DOB: <%= person.birth_date %>
+            </h6>
+          <% end %>
+
+          <% if person.ssn.present? %>
+            <h6 class="card-subtitle mb-2 text-muted">
+              SSN: <%= person.ssn %>
+            </h6>
+          <% end %>
+
+          <% if person.comment.present? %>
+            <p class="card-text">
+              <%= person.comment %>
+            </p>
+          <% end %>
+        </div>
+
+        <div>
+          <a href="#more-info-<%= person.id %>" class="btn btn-primary" data-bs-toggle="collapse">More Info</a>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#editPerson<%= person.id %>" aria-expanded="false" aria-controls="collapseExample">
+            Edit Person
+          </button>
+          <%= link_to 'Delete Person', person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+        </div>
+      </div>
+
+      <div class="collapse" id="editPerson<%= person.id %>">
+        <%= render 'form', person: person %>
+      </div>
+
+      <div class="collapse" id="more-info-<%= person.id %>">
+        <%= render 'addresses/show', addresses: person.addresses, person_id: person.id %>
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addAddressForm-<%= person.id %>" aria-expanded="false" aria-controls="collapseExample">
+              Add Address
+          </button>
+        </div>
+      </div>
+
+      <div class="collapse" id="addAddressForm-<%= person.id %>">
+        <%= render 'addresses/form', address: @address, person_id: person.id %>
+      </div>
+    </div>
+  </div>
