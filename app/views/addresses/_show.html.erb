@@ -1,0 +1,29 @@
+<% addresses.each do |address| %>
+  <p>
+    <strong>Street:</strong>
+    <%= address.street %>
+  </p>
+
+  <p>
+    <strong>Town:</strong>
+    <%= address.town %>
+  </p>
+
+  <p>
+    <strong>Zip code:</strong>
+    <%= address.zip_code %>
+  </p>
+
+  <p>
+    <strong>State:</strong>
+    <%= address.state %>
+  </p>
+
+  <p>
+    <strong>Country:</strong>
+    <%= address.country %>
+  </p>
+
+  <%= link_to 'Edit', edit_address_path(address.id), class: "btn btn-primary mb-4" %>
+  <%= link_to 'Delete', address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary mb-4" %>
+<% end %>
