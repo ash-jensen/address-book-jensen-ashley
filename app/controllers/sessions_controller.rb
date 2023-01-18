@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+  # POST /sign-in
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     end
   end
   
+  # DELETE /sign-out
   def destroy
     session[:user_id] = nil
     flash[:notice] = "Sign out successful."

@@ -62,6 +62,7 @@ class AddressesController < ApplicationController
     end
   end
 
+  # Check that the user is the correct user to gain access to the given content
   def correct_user
     @person = current_user.people.find_by(id: params[:id])
     redirect_to people_path, notice: "You are not authorized to access this content" if @person.nil?
