@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Address Book application built using Ruby on Rails with a PostgreSQL database, testing done using RSpec.
 
-Things you may want to cover:
+* Ruby 3.1.2p20
 
-* Ruby version
+* Rails 6.1.7
 
-* System dependencies
+* PostgreSQL 15.1
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* RSpec 3.1.2
