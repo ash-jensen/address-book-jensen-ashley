@@ -12,7 +12,7 @@
 
           <% if person.birth_date.present? %>
             <h6 class="card-subtitle mb-2 text-muted">
-              DOB: <%= person.birth_date %>
+              DOB: <%= person.birth_date.strftime('%B %d, %Y') %>
             </h6>
           <% end %>
 
