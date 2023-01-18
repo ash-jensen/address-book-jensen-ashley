@@ -31,7 +31,7 @@
 
         <div>
           <a href="#more-info-<%= person.id %>" class="btn btn-primary" data-bs-toggle="collapse">More Info</a>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#editPerson<%= person.id %>">
+          <button class="btn btn-primary" type="button" name="Edit Person" data-bs-toggle="collapse" data-bs-target="#editPerson<%= person.id %>">
             Edit Person
           </button>
           <%= link_to 'Delete Person', person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
