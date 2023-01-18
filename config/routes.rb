@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :phone_numbers
+  resources :emails
   # Users Routes
   resources :users, except: [:new]
   get "sign-up", to: "users#new"
