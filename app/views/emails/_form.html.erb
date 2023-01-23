@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="mb-2">
+    <%= form.label :email_address, class:"form-label" %>
+    <%= form.text_field :email_address, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
+  <div class="mb-2">
+    <%= form.label :comment, class:"form-label" %>
+    <%= form.text_area :comment, class:"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.text_field :user_id, id: :person_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div> 
+
+  <%= hidden_field_tag :person_id, person_id %>
+
+  <div class="actions mt-3">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
+
 <% end %>

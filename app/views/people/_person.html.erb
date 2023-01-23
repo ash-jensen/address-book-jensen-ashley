@@ -46,7 +46,10 @@
         <%= render 'addresses/show', addresses: person.addresses, person_id: person.id %>
         <div>
           <button class="btn btn-primary mt-4 mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#addAddressForm-<%= person.id %>">
-              Add New Address
+            Add New Address
+          </button>
+          <button class="btn btn-primary mt-4 mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#addEmailForm-<%= person.id %>">
+            Add New Email
           </button>
         </div>
       </div>
@@ -54,5 +57,10 @@
       <div class="collapse" id="addAddressForm-<%= person.id %>">
         <%= render 'addresses/form', address: @address, person_id: person.id %>
       </div>
+
+      <div class="collapse" id="addEmailForm-<%= person.id %>">
+        <%= render 'emails/form', email: @email, person_id: person.id %>
+      </div>
+
     </div>
   </div>

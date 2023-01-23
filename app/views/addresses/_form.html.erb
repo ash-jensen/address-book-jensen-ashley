@@ -36,7 +36,7 @@
   </div>
 
   <div>
-    <%= form.text_field :user_id, id: :person_user_id, class:"form-control mb-", value: current_user.id, type: :hidden %>
+    <%= form.text_field :user_id, id: :person_user_id, class:"form-control", value: current_user.id, type: :hidden %>
   </div> 
 
   <%= hidden_field_tag :person_id, person_id %>

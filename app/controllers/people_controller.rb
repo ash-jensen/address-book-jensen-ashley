@@ -8,6 +8,7 @@ class PeopleController < ApplicationController
     @people = current_user.people.all
     @person = current_user.people.build
     @address = Address.new
+    @email = Email.new
   end
 
   # GET /people/1 or /people/1.json
