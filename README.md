@@ -1,6 +1,7 @@
 # README
 
-Address Book application built using Ruby on Rails with a PostgreSQL database, testing done using RSpec.
+
+Address book application built using Ruby on Rails with a PostgreSQL database, testing done using RSpec.
 
 * Ruby 3.1.2
 
